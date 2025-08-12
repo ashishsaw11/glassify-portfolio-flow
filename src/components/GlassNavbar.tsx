@@ -1,10 +1,12 @@
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -19,7 +21,8 @@ const GlassNavbar = () => {
           <a href="#home" className="font-semibold tracking-tight story-link">Glassfolio</a>
 
           {isMobile ? (
-            <div className="relative">
+            <div className="relative flex items-center gap-2">
+              <ThemeToggle />
               <Button variant="glass" size="icon" aria-label="Toggle menu" onClick={() => setOpen((v) => !v)}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
                   <path fillRule="evenodd" d="M3.75 5.25a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm0 6a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm0 6a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
@@ -57,6 +60,7 @@ const GlassNavbar = () => {
                   </li>
                 ))}
               </ul>
+              <ThemeToggle />
               <a href="#contact" className="hidden sm:block">
                 <Button variant="hero">Contact</Button>
               </a>
